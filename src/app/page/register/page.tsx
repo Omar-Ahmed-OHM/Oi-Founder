@@ -16,12 +16,10 @@ export default function Refgister(){
     }
     return(
         <>
-                    <Nav/>
         <section className="bg-main-color p-14">
         <div className="container mx-auto ">
             <RegisterForm Register={Registe_api}/>
         </div>
-        <Footer/>
         </section>
         </>
     )

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaEnvelope, FaLock, FaUser, FaPhone } from 'react-icons/fa'; // Import icons
-import form_img from '../../../../public/asset/Welcome.svg';
-import person from '../../../../public/asset/Illustration.svg';
+import form_img from '../../../../public/asset/images/Welcome.svg';
+import person from '../../../../public/asset/images/Illustration.svg';
 import { Button } from '@/app/shared/ui/Button';
 
 type RegisterProps = {

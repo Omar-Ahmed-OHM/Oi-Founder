@@ -15,7 +15,8 @@ export default {
         "card-color":"#0E1330 ",
         "border-color":"#282D45",
         'transparent-blue': 'rgba(21, 25, 52, 0.8)',
-        'paragraph-color':"#8F9BB7"
+        'paragraph-color':"#8F9BB7",
+        'main-bg-dahboard':"#081028"
       },
       backgroundImage: {
         'text-gradient': 'linear-gradient(to bottom, #F6F6F7, #7E808F)',

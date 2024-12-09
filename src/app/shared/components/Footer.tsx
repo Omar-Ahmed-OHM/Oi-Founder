@@ -6,7 +6,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-main-color relative mt-3">
+      <footer className="bg-main-color relative  pl-8 pr-8 pt-8">
         {/* Adjusted Absolute Div */}
         <div
           className="absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[150px] h-[100px] bg-btn-color blur-[100px] z-0 "
@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="flex flex-col lg:flex-row  justify-between">
               <div className="form">
                 <div className="mb-5">
-                  <Image src={logo} width={200} alt="logo" />
+                  <Image src={logo } width={200} alt="logo" />
                 </div>
                 <div className="bg-card-color p-6 rounded-[10px] shadow-lg max-w-[393px] text-left">
                   <h2 className="text-paragraph-color text-[24px] font-semibold mb-4">
