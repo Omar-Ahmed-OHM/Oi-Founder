@@ -5,7 +5,7 @@ export default function DashNav(){
     return(
         <>
         <section className="bg-[#081028] static top-0 border-[1px] border-gray-500 shadow-xl">
-            <nav className="mx-auto container flex justify-between items-center p-6">
+            <nav className="flex justify-between items-center p-12">
                 <div className="logo">
                     <Image src={logo} alt="logo" width={150}/>
                 </div>

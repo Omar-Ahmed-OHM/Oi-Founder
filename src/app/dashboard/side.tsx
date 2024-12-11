@@ -1,50 +1,45 @@
-"use client";
-import React, { useState } from 'react';
+"use client"
+import React, { useState } from 'react'
+import Image from 'next/image'  
+import logo from '../../../public/asset/images/logo.svg'
 import Link from 'next/link';
-
-const Sidebar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(true);
-
+export default function Sidebar(){
+    const [isOpen, setIsOpen] = useState(false);
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
-    };
+      };
+    return(
+        <>
+        <section className="side p-12">
 
-    return (
-        <div className={`
-            ${isOpen ? 'w-64' : 'w-16'}
-            bg-gray-800 text-white h-screen fixed transition-width duration-300
-        `}>
-            <button
-                onClick={toggleSidebar}
-                className="text-white text-lg p-2 focus:outline-none"
-            >
-                {isOpen ? '<' : '>'}
-            </button>
-            <nav className="mt-4">
-                <ul className="space-y-4">
-                    <li>
-                        <Link href="/dashboard">
-                            <Link href={'/'} className="block p-2 hover:bg-gray-700 rounded">Dashboard</Link >
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/profile">
-                            <Link href={'/'} className="block p-2 hover:bg-gray-700 rounded">Profile</Link>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/settings">
-                            <Link href={'/'} className="block p-2 hover:bg-gray-700 rounded">Settings</Link >
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/logout">
-                            <Link href={'/'} className="block p-2 hover:bg-gray-700 rounded">Logout</Link   >
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    );
-};
-export default Sidebar;
+        <nav className="sidebar " id="sidebar">
+            <ul className='flex flex-col justify-between gap-32 font-semibold text-[20px] items-center text-paragraph-color'>
+                <li>
+                    <Link href="/dashboard/users">Users</Link>
+                </li>
+
+                <li>
+                    <Link href="/dashboard/complain">Complains</Link>
+                </li>
+
+                <li>
+                    <Link href="/dashboard/empelwee">empelwee</Link>
+                </li>
+
+
+                
+                <li>
+                    <Link href="/dashboard/empelwee">Free Users</Link>
+                </li>
+
+
+                   
+                <li>
+                    <Link href="/dashboard/empelwee">Setting</Link>
+                </li>
+            </ul>
+        </nav>
+        </section>
+        </>
+    )
+}
