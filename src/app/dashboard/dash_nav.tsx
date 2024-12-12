@@ -4,9 +4,9 @@ import person from '../../../public/asset/images/admin profile.jpg'
 export default function DashNav(){
     return(
         <>
-        <section className="bg-[#081028] static top-0 border-[1px] border-gray-500 shadow-xl">
+        <section className="bg-bg-dash-board static top-0 border-[1px] border-gray-500 shadow-xl">
             <nav className="flex justify-between items-center p-12">
-                <div className="logo">
+                <div className="logo pr-10">
                     <Image src={logo} alt="logo" width={150}/>
                 </div>
 
