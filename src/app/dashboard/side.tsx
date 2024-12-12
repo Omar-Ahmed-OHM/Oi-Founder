@@ -10,7 +10,7 @@ export default function Sidebar() {
 
     return (
         <>
-            <section className="side p-12 border-[1px] border-gray-500 shadow-xl z-50 h-dvh ">
+            <section className="side p-12 border-r-[1px] border-gray-500 shadow-xl z-50 h-full ">
                 <nav className="sidebar" id="sidebar">
                     <ul className="flex flex-col justify-between gap-32 font-semibold text-[20px] items-center text-white">
                         <li>
