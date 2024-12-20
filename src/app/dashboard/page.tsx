@@ -41,7 +41,11 @@ const Dashboard = () => {
     { time: "6AM", profit: 400 },
     { time: "12PM", profit: 600 },
     { time: "6PM", profit: 800 },
-    { time: "12AM", profit: 1000 },
+    { time: "7AM", profit: 1100 },
+    { time: "10AM", profit: 1200 },
+    { time: "12AM", profit: 1300 },
+    { time: "1AM", profit: 1400 },
+    { time: "2AM", profit: 1800 },
   ];
 
   // Data for Users by Device (Pie Chart)
@@ -108,17 +112,17 @@ const Dashboard = () => {
 
         {/* Bar Chart */}
         <div className="bg-bg-dash-board-card p-8 rounded-xl shadow-lg">
-          <h2 className="text-xl font-semibold mb-6">Total Profit</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={barChartData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="time" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="profit" fill="#CB3CFF" radius={[10, 10, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+  <h2 className="text-xl font-semibold mb-6">Total Profit</h2>
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart data={barChartData} barSize={20}> {/* Set barSize to adjust the width */}
+      <XAxis dataKey="time" />
+      <YAxis />
+      <Tooltip />
+      <Bar dataKey="profit" fill="#CB3CFF" radius={[10, 10, 0, 0]} />
+    </BarChart>
+  </ResponsiveContainer>
+</div>
+
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

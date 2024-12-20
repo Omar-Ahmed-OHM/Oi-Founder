@@ -10,9 +10,9 @@ export default function Sidebar() {
 
     return (
         <>
-            <section className="side p-12 border-r-[1px] border-gray-500 shadow-xl z-50 h-full ">
+            <section className="side p-12 border-r-[1px] border-gray-500 shadow-right  z-50 h-full ">
                 <nav className="sidebar" id="sidebar">
-                    <ul className="flex flex-col justify-between gap-32 font-semibold text-[20px] items-center text-white">
+                    <ul className="flex flex-col justify-between gap-32 font-semibold text-[20px] items-center bg-text-gradient bg-clip-text text-xl  text-transparent">
                         <li>
                             <Link href="/dashboard/users">Users</Link>
                         </li>
