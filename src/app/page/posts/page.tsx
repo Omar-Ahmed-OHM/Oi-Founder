@@ -67,7 +67,7 @@ export default function Posts() {
     return () => {
       window.removeEventListener("scroll", endPage);
     };
-  }, []);
+  }, [scroll]);
 
   useEffect(() => {
     if (scroll) {
