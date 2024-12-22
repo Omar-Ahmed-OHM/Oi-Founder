@@ -34,7 +34,7 @@ export default function DashNav() {
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <nav className="flex justify-between items-center p-2">
+        <nav className="flex justify-between container mx-auto items-center p-2">
           {/* Logo */}
           <div className="logo pr-10">
             <Image src={logo} alt="logo" width={150} />

@@ -21,8 +21,9 @@ export default function Posts() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
+  // Fetch data function
   const FetchData = async () => {
-    if (loading || !hasMore) return;
+    if (loading || !hasMore) return; // Prevent duplicate fetches or fetching after no more data
     setLoading(true);
 
     try {
@@ -40,10 +41,10 @@ export default function Posts() {
           image: admin || post.image,
         }));
 
-        setData((prevData) => [...prevData, ...formattedData]);
-        setPage((prevPage) => prevPage + 1);
+        setData((prevData) => [...prevData, ...formattedData]); // Append new data to existing data
+        setPage((prevPage) => prevPage + 1); // Increment page number
       } else {
-        setHasMore(false);
+        setHasMore(false); // No more data available
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -52,19 +53,25 @@ export default function Posts() {
     setLoading(false);
   };
 
+  // Handle scroll event
   const handleScroll = () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5 && hasMore && !loading) {
-      FetchData();
+
+    // Check if user is near the bottom of the page
+    if (scrollTop + clientHeight >= scrollHeight - 100) {
+      FetchData(); // Fetch more data
     }
   };
 
+  // Attach scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
+    // Initial data fetch
     FetchData();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll); 
     };
   }, []);
 
@@ -75,7 +82,7 @@ export default function Posts() {
           <div className="flex flex-col gap-4">
             {data.map((post, index) => (
               <div
-                key={`${post.id}-${post.userId}-${index}`} // Ensures unique keys
+                key={`${post.id}-${post.userId}-${index}`} // Ensure unique keys
                 className="bg-card-color shadow-md rounded-lg p-4 border border-border-color"
               >
                 <div className="flex items-center mb-3">
@@ -108,12 +115,14 @@ export default function Posts() {
             ))}
           </div>
 
+          {/* Loading indicator */}
           {loading && (
             <div className="text-center my-4">
               <p>Loading...</p>
             </div>
           )}
 
+          {/* No more posts message */}
           {!hasMore && (
             <div className="text-center my-4">
               <p>No more posts to load.</p>
