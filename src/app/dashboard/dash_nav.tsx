@@ -5,13 +5,12 @@ import person from "../../../public/asset/images/admin profile.jpg";
 import { useState, useEffect } from "react";
 
 export default function DashNav() {
-  const [show, setShow] = useState<boolean>(true); // Tracks navbar visibility
-  const [lastScrollY, setLastScrollY] = useState<number>(0); // Tracks last scroll position
+  const [show, setShow] = useState<boolean>(true); 
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   const handleScroll = () => {
     const currentScroll = window.scrollY;
 
-    // Hide navbar when scrolling down, show when scrolling up
     if (currentScroll > lastScrollY) {
       setShow(false);
     } else {
@@ -34,14 +33,13 @@ export default function DashNav() {
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <nav className="flex justify-between container mx-auto items-center p-2">
-          {/* Logo */}
-          <div className="logo pr-10">
+        <nav className="flex justify-between  container mx-auto items-center p-2">
+          <div className="logo ">
             <Image src={logo} alt="logo" width={150} />
           </div>
 
-          {/* Profile Section */}
-          <div className="profile flex items-center gap-2  rounded-[34px] p-3 min-w-[250px] justify-center">
+          <div className="profile flex items-center gap-2 rounded-[34px] p-3  justify-center">
+
             <div>
               <Image
                 src={person}
