@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/asset/images/logo.svg";
+import logo from "../../../public/asset/images/logo_founder-removebg-preview-removebg-preview.png";
 import person from "../../../public/asset/images/admin profile.jpg";
 import { useState, useEffect } from "react";
 
@@ -35,7 +35,9 @@ export default function DashNav() {
       >
         <nav className="flex justify-between  container mx-auto items-center p-2">
           <div className="logo ">
-            <Image src={logo} alt="logo" width={150} />
+            <Image src={logo} alt="logo" width={150}
+            className="sm:w-[80px] md:w-[200px] lg:w-[150px]"
+            />
           </div>
 
           <div className="profile flex items-center gap-2 rounded-[34px] p-3  justify-center">
