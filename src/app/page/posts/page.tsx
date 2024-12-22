@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
 import admin from "../../../../public/asset/images/admin profile.jpg";
+import { Button } from "@/app/shared/ui/Button";
 
 export default function Posts() {
   type posttype = {
@@ -100,20 +101,15 @@ export default function Posts() {
                   </div>
                 </div>
                 {/* Apply the requested styles to the post title */}
+                <div>
+
                 <h3 className="bg-text-gradient bg-clip-text text-lg font-semibold text-transparent">
                   {post.title}
                 </h3>
-                <p className="text-gray-700 mt-2">{post.body}</p>
+                <p className="text-slate-200 mt-2">{post.body}</p>
+                </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <button className="text-sm font-semibold text-gray-600 hover:text-btn-color">
-                    Like
-                  </button>
-                  <button className="text-sm font-semibold text-gray-600 hover:text-btn-color">
-                    Comment
-                  </button>
-                  <button className="text-sm font-semibold text-gray-600 hover:text-btn-color">
-                    Share
-                  </button>
+                 <Button theme="primary" classname="w-full"> Chat</Button>
                 </div>
               </div>
             ))}
