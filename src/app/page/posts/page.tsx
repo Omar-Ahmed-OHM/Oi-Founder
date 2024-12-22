@@ -16,22 +16,13 @@ export default function Posts() {
     image: string;
   };
 
-  const [scroll, setScroll] = useState(false);
   const [data, setData] = useState<posttype[]>([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
-  const endPage = () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
-
-  const Fetchdata = async () => {
-    if (loading) return;
+  const FetchData = async () => {
+    if (loading || !hasMore) return;
     setLoading(true);
 
     try {
@@ -46,11 +37,13 @@ export default function Posts() {
           title: post.title,
           body: post.body,
           userId: post.userId,
-          image: admin || post.image, // Fallback image
+          image: admin || post.image,
         }));
 
         setData((prevData) => [...prevData, ...formattedData]);
         setPage((prevPage) => prevPage + 1);
+      } else {
+        setHasMore(false);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -59,30 +52,30 @@ export default function Posts() {
     setLoading(false);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", endPage);
+  const handleScroll = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5 && hasMore && !loading) {
+      FetchData();
+    }
+  };
 
-    Fetchdata();
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    FetchData();
 
     return () => {
-      window.removeEventListener("scroll", endPage);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [scroll]);
-
-  useEffect(() => {
-    if (scroll) {
-      Fetchdata();
-    }
-  }, [scroll]);
+  }, []);
 
   return (
     <>
       <section className="bg-main-color min-h-screen">
         <div className="mx-auto container px-4 py-6">
           <div className="flex flex-col gap-4">
-            {data.map((post: posttype) => (
+            {data.map((post, index) => (
               <div
-                key={post.id}
+                key={`${post.id}-${post.userId}-${index}`} // Ensures unique keys
                 className="bg-card-color shadow-md rounded-lg p-4 border border-border-color"
               >
                 <div className="flex items-center mb-3">
@@ -100,16 +93,16 @@ export default function Posts() {
                     <p className="text-sm text-gray-500">2 hrs ago</p>
                   </div>
                 </div>
-                {/* Apply the requested styles to the post title */}
                 <div>
-
-                <h3 className="bg-text-gradient bg-clip-text text-lg font-semibold text-transparent">
-                  {post.title}
-                </h3>
-                <p className="text-slate-200 mt-2">{post.body}</p>
+                  <h3 className="bg-text-gradient bg-clip-text text-lg font-semibold text-transparent">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-200 mt-2">{post.body}</p>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                 <Button theme="primary" classname="w-full"> Chat</Button>
+                  <Button theme="primary" classname="w-full">
+                    Chat
+                  </Button>
                 </div>
               </div>
             ))}
@@ -118,6 +111,12 @@ export default function Posts() {
           {loading && (
             <div className="text-center my-4">
               <p>Loading...</p>
+            </div>
+          )}
+
+          {!hasMore && (
+            <div className="text-center my-4">
+              <p>No more posts to load.</p>
             </div>
           )}
         </div>

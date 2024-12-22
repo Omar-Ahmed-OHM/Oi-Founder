@@ -41,7 +41,7 @@ export default function DashNav() {
           </div>
 
           {/* Profile Section */}
-          <div className="profile flex items-center gap-2 bg-card-color rounded-[34px] p-3 min-w-[250px] justify-center">
+          <div className="profile flex items-center gap-2  rounded-[34px] p-3 min-w-[250px] justify-center">
             <div>
               <Image
                 src={person}
@@ -49,11 +49,7 @@ export default function DashNav() {
                 className="rounded-full w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px]"
               />
             </div>
-            <div className="profile_name">
-              <p className="bg-text-gradient bg-clip-text text-base sm:text-lg md:text-xl font-semibold text-transparent">
-                Omar Ahmed
-              </p>
-            </div>
+            
           </div>
         </nav>
       </section>
