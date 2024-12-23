@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/asset/images/logo_founder-removebg-preview-removebg-preview.png";
+import logo from "../../../public/asset/images/logo.svg";
 import person from "../../../public/asset/images/admin profile.jpg";
 import { useState, useEffect } from "react";
 

@@ -4,7 +4,7 @@ import { ApiCall } from "@/app/utils/ApiCall";
 import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
-import admin from "../../../../public/asset/images/logo.svg";
+import admin from "../../../../public/asset/images/admin profile.jpg";
 import { Button } from "@/app/shared/ui/Button";
 
 export default function Posts() {
