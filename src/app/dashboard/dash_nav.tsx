@@ -11,7 +11,7 @@ export default function DashNav() {
   const handleScroll = () => {
     const currentScroll = window.scrollY;
 
-    if (currentScroll > lastScrollY) {
+    if (currentScroll > lastScrollY || lastScrollY===0) {
       setShow(false);
     } else {
       setShow(true);
@@ -29,7 +29,7 @@ export default function DashNav() {
   return (
     <>
       <section
-        className={`bg-bg-dash-board border-[1px] border-gray-500 shadow-xl fixed w-full transition-transform duration-300 ${
+        className={`bg-bg-dash-board border-[1px] border-gray-500 shadow-xl fixed  w-full transition-transform duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
