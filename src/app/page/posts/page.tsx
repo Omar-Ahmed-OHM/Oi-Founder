@@ -165,13 +165,9 @@ export default function Posts() {
                     <div className="w-[48px] h-[48px] mr-3 border-[1px] border-border-color rounded-full overflow-hidden">
                       <Skeleton circle={true} width={48} height={48} />
                     </div>
-                    <div>
-                      <Skeleton width={120} height={20} className="mb-2" />
-                      <Skeleton width={80} height={16} />
-                    </div>
                   </div>
                   <div>
-                    <Skeleton width="70%" height={24} className="mb-2 border-[1px] border-border-color" />
+                    <Skeleton width="70%" height={24} className="mb-2 border-none" />
                     <Skeleton width="100%" height={16} />
                     <Skeleton width="95%" height={16} />
                   </div>
