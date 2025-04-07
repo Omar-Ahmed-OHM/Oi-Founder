@@ -16,7 +16,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import { Button } from "../shared/ui/Button";
+import { Button } from "../../../shared/ui/Button";
 
 const Dashboard = () => {
   // Data for Total Revenue (Line Chart)
